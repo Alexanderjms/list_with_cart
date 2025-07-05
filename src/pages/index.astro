@@ -1,0 +1,35 @@
+---
+import "../styles/global.css";
+import ProductCard from "../components/ProductCard.astro";
+---
+
+<main>
+ <h1 class="text-[#200902] font-bold text-5xl mt-24 ml-24">Desserts</h1>
+  <div class="mt-8 ml-24 grid grid-cols-3 gap-20 p-0 m-0 w-[690px]">
+    <ProductCard 
+      image="/image-waffle-desktop.jpg"
+      category="Waffle"
+      title="Waffle with Berries"
+      price="$6.50"
+    />
+    <ProductCard 
+      image="/image-creme-brulee-desktop.jpg"
+      category="Crème Brûlée"
+      title="Vanilla Bean Crème Brûlée"
+      price="$7.00"
+    />
+    <ProductCard 
+      image="/image-macaron-desktop.jpg"
+      category="Macaron"
+      title="Macaron Mix of Five"
+      price="$8.00"
+    />
+	<ProductCard 
+      image="/image-macaron-desktop.jpg"
+      category="Macaron"
+      title="Macaron Mix of Five"
+      price="$8.00"
+    />
+  </div>
+</main>
+
