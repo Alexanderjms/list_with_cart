@@ -3,3 +3,9 @@
 .red-hat {
   font-family: "Red Hat Text", sans-serif;
 }
+
+.red-hat-bold {
+  font-family: "Red Hat Text", sans-serif;
+  font-weight: 550;
+  font-size: 0.85em;
+}

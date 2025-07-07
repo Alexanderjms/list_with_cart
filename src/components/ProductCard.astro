@@ -3,11 +3,11 @@ const { image, category, title, price } = Astro.props;
 ---
 
 <div class="flex flex-col w-[230px]">
-  <div class="h-[200px] rounded-full overflow-visible relative">
-    <img src={image} alt="product image" class="w-full h-full object-cover" />
-         <button class="z-10 absolute bottom-[-10px] left-1/2 -translate-x-1/2 bg-white border border-pink-900 w-44 h-10 rounded-3xl text-sm hover:bg-gray-100 transition flex items-center justify-center gap-2">
+  <div class="h-[200px] overflow-visible relative">
+    <img src={image} alt="product image" class="w-full h-full object-cover rounded-2xl" />
+         <button class="z-10 absolute bottom-[-10px] left-1/2 -translate-x-1/2 bg-white border-[0.1px] border-pink-400 w-44 h-10 rounded-3xl text-sm hover:bg-gray-100 transition flex items-center justify-center gap-2">
        <img src="/icon-add-to-cart.svg" alt="Add to Cart Icon" class="w-4 h-4" />
-       Add to Cart
+       <span class="red-hat-bold">Add to Cart</span>
      </button>
     </div>
   <div class="mt-4">

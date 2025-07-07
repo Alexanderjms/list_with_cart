@@ -1,10 +1,10 @@
 ---
 import "../styles/global.css";
 import ProductCard from "../components/ProductCard.astro";
+import Layout from "../layouts/Layout.astro";
 ---
-
-<main>
- <h1 class="text-[#200902] font-bold text-5xl mt-24 ml-24">Desserts</h1>
+<Layout>
+  <h1 class="text-[#200902] font-bold text-5xl mt-24 ml-24">Desserts</h1>
   <div class="mt-8 ml-24 grid grid-cols-3 gap-20 p-0 m-0 w-[690px]">
     <ProductCard 
       image="/image-waffle-desktop.jpg"
@@ -14,8 +14,8 @@ import ProductCard from "../components/ProductCard.astro";
     />
     <ProductCard 
       image="/image-creme-brulee-desktop.jpg"
-      category="Crème Brûlée"
-      title="Vanilla Bean Crème Brûlée"
+      category="Crème Brülée"
+      title="Vanilla Bean Crème Brülée"
       price="$7.00"
     />
     <ProductCard 
@@ -24,12 +24,38 @@ import ProductCard from "../components/ProductCard.astro";
       title="Macaron Mix of Five"
       price="$8.00"
     />
-	<ProductCard 
-      image="/image-macaron-desktop.jpg"
-      category="Macaron"
-      title="Macaron Mix of Five"
-      price="$8.00"
+    <ProductCard 
+      image="/image-tiramisu-desktop.jpg"
+      category="Tiramisu"
+      title="Classic Tiramisu"
+      price="$5.50"
     />
-  </div>
-</main>
-
+    <ProductCard 
+      image="/image-baklava-desktop.jpg"
+      category="Baklava"
+      title="Pistachio Baklava"
+      price="$4.00"
+    />
+    <ProductCard 
+      image="/image-meringue-desktop.jpg"
+      category="Pie"
+      title="Lemon Meringue Pie"
+      price="$5.00"
+    />
+    <ProductCard 
+      image="/image-cake-desktop.jpg"
+      category="Cake"
+      title="Red Velvet Cake"
+      price="$4.50"
+    />
+    <ProductCard 
+      image="/image-brownie-desktop.jpg"
+      category="Brownie"
+      title="Salted Caramel Brownie"
+      price="$5.50"
+    />
+    <ProductCard 
+      image="/image-panna-cotta-desktop.jpg"
+      category="Panna Cotta"
+      title="Vanilla Panna Cotta"
+      price="$6.50"
