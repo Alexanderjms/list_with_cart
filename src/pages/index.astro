@@ -4,10 +4,12 @@ import ProductCard from "../components/ProductCard.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 <Layout>
-  <div class="mt-24 ml-24 flex items-start">
-    <div>
-      <h1 class="text-[#200902] font-bold text-5xl">Desserts</h1>
-      <div class="mt-8 grid grid-cols-3 gap-20 w-[690px]">
+  <main class="p-6 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
+    
+    <!-- Products Section -->
+    <div class="w-full lg:max-w-3xl mx-auto lg:mx-0">
+      <h1 class="text-[#200902] font-bold text-4xl md:text-5xl text-center lg:text-left">Desserts</h1>
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14 justify-items-center sm:justify-items-center lg:justify-items-start">
         <ProductCard 
           image="/image-waffle-desktop.jpg"
           category="Waffle"
@@ -64,23 +66,25 @@ import Layout from "../layouts/Layout.astro";
         />
       </div>
     </div>
-    <aside class="ml-52 mt-4 text-amber-700 text-center bg-white rounded-lg p-8 w-96 h-auto">
-      <h2 class="text-2xl font-bold absolute mb-4">
+
+    <!-- Cart Aside -->
+    <aside class="w-full lg:w-96 text-amber-700 bg-white rounded-lg p-6 sticky top-8">
+      <h2 class="text-2xl font-bold text-left">
         Your Cart (<span id="cart-count">0</span>)
       </h2>
-      <div id="cart-empty" class="mt-10">
+      <div id="cart-empty" class="mt-10 text-center">
         <img
           src="/illustration-empty-cart.svg"
           alt="Cart Icon"
           class="w-36 h-36 mx-auto"
         />
-        <h1 class="red-hat text-sm text-amber-700 font-medium mt-5">
+        <p class="red-hat text-sm text-amber-700 font-medium mt-5">
           Your added items will appear here
-        </h1>
+        </p>
       </div>
-      <div id="cart-list" class="mt-14 text-black"></div>
-      <div class="mt-8 pt-4 border-t border-gray-300">
-        <div class="flex justify-between font-bold">
+      <div id="cart-list" class="mt-6 text-black"></div>
+      <div class="mt-6 pt-4 border-t border-gray-300">
+        <div class="flex justify-between items-center font-bold">
           <span class="text-gray-900 text-sm">Order Total:</span>
           <span class="text-black text-2xl" id="cart-total">$0.00</span>
         </div>
@@ -89,32 +93,34 @@ import Layout from "../layouts/Layout.astro";
             src="/icon-carbon-neutral.svg"
             alt="Delivery Truck Icon"
             class="w-5 h-5 inline-block mr-2"
+          />
           <p>This is a <span class="font-semibold">carbon-neutral</span> delivery</p>
         </div>
         <button
             id="checkout-button"
-            class="mt-8 ml-4 bg-amber-700 text-white red-hat-bold px-24 py-4 rounded-full hover:bg-amber-800 transition-colors duration-200"
+            class="mt-6 w-full bg-amber-700 text-white red-hat-bold py-3 rounded-full hover:bg-amber-800 transition-colors duration-200"
           >
             Confirm Order
           </button>
       </div>
     </aside>
-  </div>
+  </main>
 
-   <div id="order-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 ease-in-out opacity-0 invisible z-50">
-    <div class="modal-box bg-white rounded-lg p-8 max-w-lg w-full flex flex-col min-h-[36rem] transform scale-95 transition-transform duration-300 ease-in-out relative">
+  <!-- Order Confirmation Modal -->
+  <div id="order-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 ease-in-out opacity-0 invisible z-50 p-4">
+    <div class="modal-box bg-white rounded-lg p-6 sm:p-8 max-w-lg w-full flex flex-col max-h-[90vh] transform scale-95 transition-transform duration-300 ease-in-out relative">
       <button id="close-modal-button" class="absolute top-4 right-6 text-gray-400 hover:text-gray-800 text-4xl font-light transition-colors duration-200">&times;</button>
-      <div> <!-- Contenido superior -->
+      <div class="overflow-y-auto"> <!-- Contenido superior con scroll -->
         <img src="/icon-order-confirmed.svg" alt="Order Confirmed" class="w-12 h-12 mb-4" />
         <h2 class="text-[#200902] font-bold text-3xl mb-4">Order Confirmed</h2>
         <p class="text-gray-500 mb-6">We hope you enjoy your food!</p>
         <div id="modal-order-list" class="bg-rose-50 rounded-lg p-4 mb-6">
         </div>
       </div>
-      <div class="mt-auto"> <!-- Contenido inferior empujado al fondo -->
+      <div class="mt-auto pt-4 border-t border-gray-200"> <!-- Contenido inferior empujado al fondo -->
         <div class="flex justify-between items-center font-bold mb-6">
           <span class="text-gray-900">Order Total:</span>
-          <span id="modal-total" class="text-[#200902]text-2xl">$0.00</span>
+          <span id="modal-total" class="text-[#200902] text-2xl">$0.00</span>
         </div>
         <button id="new-order-button" class="w-full bg-amber-700 text-white red-hat-bold py-4 rounded-full hover:bg-amber-800 transition-colors duration-200">
           Start New Order
