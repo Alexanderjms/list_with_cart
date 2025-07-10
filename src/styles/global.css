@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+body {
+  background-color: rgb(249, 255, 220);
+  font-family: "Red Hat Text", sans-serif;
+}
+
 .red-hat {
   font-family: "Red Hat Text", sans-serif;
 }

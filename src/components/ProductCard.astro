@@ -1,15 +1,26 @@
----
-const { image, category, title, price } = Astro.props;
+---  
+const { image, category, title, price } = Astro.props;  
 ---
 
 <div class="flex flex-col w-[230px]">
   <div class="h-[200px] overflow-visible relative">
     <img src={image} alt="product image" class="w-full h-full object-cover rounded-2xl" />
-         <button class="z-10 absolute bottom-[-10px] left-1/2 -translate-x-1/2 bg-white border-[0.1px] border-pink-400 w-44 h-10 rounded-3xl text-sm hover:bg-gray-100 transition flex items-center justify-center gap-2">
-       <img src="/icon-add-to-cart.svg" alt="Add to Cart Icon" class="w-4 h-4" />
-       <span class="red-hat-bold">Add to Cart</span>
-     </button>
-    </div>
+    <button data-add-to-cart data-title={title} data-price={price} data-image={image.replace('-desktop.jpg', '-thumbnail.jpg')}
+      class="
+        z-10 absolute bottom-[-10px] left-1/2 -translate-x-1/2
+        bg-white border-[0.1px] border-amber-700 w-44 h-10 rounded-3xl
+        text-sm flex items-center justify-center gap-2
+
+        hover:bg-[#b87f5e] hover:border-amber-700
+
+        transition-colors duration-150 ease-in-out
+        active:bg-amber-700
+      "
+    >
+      <img src="/icon-add-to-cart.svg" alt="Add to Cart Icon" class="w-4 h-4" />
+      <span class="red-hat-bold">Add to Cart</span>
+    </button>
+  </div>
   <div class="mt-4">
     <p class="text-sm text-gray-500">{category}</p>
     <h2 class="font-semibold text-base">{title}</h2>
