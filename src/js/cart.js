@@ -48,14 +48,13 @@ export function initCart() {
     btn.addEventListener("click", () => {
       const title = btn.dataset.title;
       const price = btn.dataset.price;
-      const image = btn.dataset.image; // Get image path
+      const image = btn.dataset.image;
 
       if (!title || !price || !image) {
         console.error("Product data missing.", btn);
         return;
       }
 
-      // Hide empty cart message
       if (cartCount === 0) {
         cartEmptyEl.style.display = "none";
       }
@@ -66,7 +65,7 @@ export function initCart() {
       if (cartItems[title]) {
         cartItems[title].qty++;
       } else {
-        cartItems[title] = { qty: 1, price: price, image: image }; // Store image path
+        cartItems[title] = { qty: 1, price: price, image: image };
       }
 
       const total = renderCartItems(cartListEl, cartItems);
@@ -75,10 +74,9 @@ export function initCart() {
   });
 
   checkoutButton.addEventListener("click", () => {
-    if (cartCount === 0) return; // Don't show modal if cart is empty
+    if (cartCount === 0) return;
 
-    // Populate modal list
-    modalOrderList.innerHTML = ""; // Clear previous items
+    modalOrderList.innerHTML = "";
     let total = 0;
     for (const title in cartItems) {
       const item = cartItems[title];
@@ -118,13 +116,12 @@ export function initCart() {
     orderModal.querySelector(".modal-box").classList.add("scale-95");
     setTimeout(() => {
       orderModal.classList.add("invisible");
-    }, 300); // Wait for transition to finish
+    }, 300);
   }
 
   newOrderButton.addEventListener("click", () => {
     hideModal();
 
-    // Reset cart
     setTimeout(() => {
       cartCount = 0;
       for (const key in cartItems) {
@@ -136,7 +133,7 @@ export function initCart() {
       cartListEl.innerHTML = "";
       totalEl.innerHTML = `<span class="font-bold">$0.00</span>`;
       cartEmptyEl.style.display = "block";
-    }, 300); // Wait for modal to hide before resetting
+    }, 300);
   });
 
   closeModalButton.addEventListener("click", hideModal);
